@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Playlist</title>
+    <link rel="stylesheet" type="text/css" href="../static/index.css">
+	<script src="../static/index.js"></script>
+  </head>
+  <body style="
+ 
+   
+ 
+    background-image: url('https://images.hdqwalls.com/wallpapers/my-best-casette-playlist-5k-za.jpg');
+  background-attachment: fixed;
+    background-size:cover;">
+  
+  <nav>
+      <a href="index.html">HOME</a>
+      <a href="artists.html">ARTISTS</a>
+      <a href="about.html">ABOUT</a>
+      <a href="search.html">SEARCH</a>
+      <a href="spotlight.html">ARTIST SPOTLIGHT</a>
+      <a href="playlist.html" class="active">PLAYLIST</a> 
+    </nav>
+    <h1 style="color:white;">Playlist</h1>
+    <table>
+      <thead>
+        <tr>
+           <th style="font-size:40px;">ID</th> 
+          <th style="font-size:40px;">Song Title</th>
+          <th style="font-size:40px;">Duration</th>
+          <!-- <th>Remove</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        {% for song in songs %}
+        <tr>
+           <td>{{ song[0] }}</td>
+          <td>{{ song[1] }}</td>
+          <td>{{ song[2] }}</td>
+          <td><button onclick="removeSong('{{ song[1] }}','{{ song[2] }}')">Remove</button></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    
+  
+
+    <script>
+      function removeSong(song_title, duration) {
+        // Send an AJAX request to the Flask route
+        fetch('/remove_song', {
+          method: 'POST',
+          body: new URLSearchParams({
+            'song_title': song_title,
+            'duration': duration
+          })
+        }).then(function() {
+          // Reload the page to update the playlist
+          location.reload();
+        });
+      }
+      </script>
+      
+       <footer>
+    <p>© 2023 Team DD, Inc. All rights reserved. <span><a href="about.html">About</a></span></p>
+</footer>
+  </body>
+  <style>
+  th {
+    padding: 20px; 
+    }
+</style>
+</html>

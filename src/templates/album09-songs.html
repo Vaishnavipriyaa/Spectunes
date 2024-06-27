@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Album 1 - Songs</title>
+    <link rel="stylesheet" href="../static/index.css">
+    <script src="../static/index.js"></script>
+  </head>
+  <body style="   background-image: url('https://wallpaperaccess.com/full/5050295.jpg');
+  background-attachment: fixed;
+    background-size:cover;">
+		<nav>
+      <a href="index.html">HOME</a>
+      <a href="artists.html">ARTISTS</a>
+      <a href="about.html">ABOUT</a>
+      <a href="search.html">SEARCH</a>
+      <a href="spotlight.html">ARTIST SPOTLIGHT</a>
+      <a href="playlist.html">PLAYLIST</a> 
+    </nav>
+
+    <h1 style="font-size:70px;
+color:white;"><b>Blackpink In Your Area</b></h1>
+    <ul style="font-size:30px;
+    color:white;">
+      <li>Playing With Fire</li>
+      <p>Duration 3:17</p>
+      <button onclick="addToPlaylist('Playing With Fire', '3:17')">Add to Playlist</button>
+      <li>Whistle</li>
+      <p>Duration 3:32</p>
+      <button onclick="addToPlaylist('Whistle', '3:32')">Add to Playlist</button>
+      <li>Boombayah</li>
+      <p>Duration 4:01</p>
+      <button onclick="addToPlaylist('Boombayah', '4:01')">Add to Playlist</button>
+      <li>As If Its Your Last</li>
+      <p>Duration 3:33</p>
+      <button onclick="addToPlaylist('As If Its Your Last', '3:33')">Add to Playlist</button>
+      <li>Forever Young</li>
+      <p>Duration 3:57</p>
+      <button onclick="addToPlaylist('Forever Young', '3:57')">Add to Playlist</button>
+      <li>Stay</li>
+      <p>Duration 3:50</p>
+      <button onclick="addToPlaylist('Stay', '3:50')">Add to Playlist</button>
+      <li>Ddu-Du Ddu-Du</li>
+      <p>Duration 3:29</p>
+      <button onclick="addToPlaylist('Ddu-Du Ddu-Du', '3:29')">Add to Playlist</button>
+      
+      
+
+    </ul>
+    <script>
+      function addToPlaylist(song_title, duration) {
+        // Send an AJAX request to the Flask route
+        fetch('/add_to_playlist', {
+          method: 'POST',
+          body: new URLSearchParams({
+            'song_title': song_title,
+            'duration': duration
+          })
+        })
+      }
+      </script>
+     <footer>
+  <p>© 2023 Team DD, Inc. All rights reserved. <span "><a href="about.html">About</a></span></p>
+</footer>
+
+  </body>
+</html>

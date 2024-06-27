@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Album 1 - Songs</title>
+    <link rel="stylesheet" href="../static/index.css">
+    <script src="../static/index.js"></script>
+  </head>
+  <body style="   background-image: url('https://wallpaperaccess.com/full/5050295.jpg');
+  background-attachment: fixed;
+    background-size:cover;">
+	<nav>
+      <a href="index.html">HOME</a>
+      <a href="artists.html">ARTISTS</a>
+      <a href="about.html">ABOUT</a>
+      <a href="search.html">SEARCH</a>
+      <a href="spotlight.html">ARTIST SPOTLIGHT</a>
+      <a href="playlist.html">PLAYLIST</a> 
+    </nav>
+
+    <h1 style="font-size:70px;
+color:white;"><b>THANK U,NEXT</b></h1>
+    <ul style="font-size:30px;
+    color:white;">
+      <li>7 Rings</li>
+      <p>Duration 2:59</P>
+        <button onclick="addToPlaylist('7 Rings', '2:59')">Add to Playlist</button>
+      <li>Thank U, Next</li>
+      <p>Duration 3:27</P>
+        <button onclick="addToPlaylist('Thank U, Next', '3:27')">Add to Playlist</button>
+      <li>In My Head</li>
+      <p>Duration 3:43</P>
+        <button onclick="addToPlaylist('In My Head', '3:43')">Add to Playlist</button>
+      <li>Ghostin</li>
+      <p>Duration 4:32</P>
+        <button onclick="addToPlaylist('Ghostin', '4:32')">Add to Playlist</button>
+      <li>Make Up</li>
+      <p>Duration 2:21</P>
+        <button onclick="addToPlaylist('Make Up', '2:21')">Add to Playlist</button>
+
+    </ul>
+    <script>
+      function addToPlaylist(song_title, duration) {
+        // Send an AJAX request to the Flask route
+        fetch('/add_to_playlist', {
+          method: 'POST',
+          body: new URLSearchParams({
+            'song_title': song_title,
+            'duration': duration
+          })
+        })
+      }
+      </script>
+     <footer>
+  <p>© 2023 Team DD, Inc. All rights reserved. <span "><a href="about.html">About</a></span></p>
+</footer>
+
+  </body>
+</html>

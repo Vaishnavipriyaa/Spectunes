@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Artist Spotlight</title>
+    <link rel="stylesheet" type="text/css" href="../static/index.css">
+   
+    <style>
+      body {
+        background-image: url("https://cdn.shopify.com/s/files/1/0061/0222/0864/articles/Trope_artist-spotlight_07.28.21_blog.png?v=1627573115");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        background-attachment: fixed;
+      }
+      img {
+        display: block;
+        margin: 0 auto;
+      }
+    </style>
+    
+      <style>
+.zoom-in-out {
+  animation: zoomInOut 5s 1;
+}
+
+@keyframes zoomInOut {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+</style>
+
+
+
+    
+    <script>
+    
+    
+      function submitReview() {
+    const name = document.getElementById("name").value;
+    const rating = document.querySelector('input[name="rating"]:checked').value;
+    const review = document.getElementById("review").value;
+
+    const table = document.getElementById("reviews");
+    const newRow = table.insertRow();
+    const nameCell = newRow.insertCell();
+    const ratingCell = newRow.insertCell();
+    const reviewCell = newRow.insertCell();
+    nameCell.innerHTML = name;
+    ratingCell.innerHTML = rating;
+    reviewCell.innerHTML = review;
+  }
+     
+    </script>
+   	<nav>
+      <a href="index.html">HOME</a>
+      <a href="artists.html">ARTISTS</a>
+      <a href="about.html">ABOUT</a>
+      <a href="search.html">SEARCH</a>
+      <a href="spotlight.html" class="active">ARTIST SPOTLIGHT</a>
+      <a href="playlist.html">PLAYLIST</a> 
+    </nav>
+
+  </head>
+  
+  <body>
+    <h1 style="color: pink;font-size: 100px;text-align:center;"> Justin Bieber</h1>
+  
+    <img src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F6%2F2016%2F03%2Fjustin-bieber-9999.jpg&q=60" class="zoom-in-out">
+    
+    <script>
+    window.onload = function() {
+      document.querySelector('img').classList.add('zoom');
+    };
+    
+    window.onbeforeunload = function() {
+      document.querySelector('img').classList.remove('zoom');
+    };
+  </script>
+    <br>
+    
+    <p style="color: orange;font-size: 50px;">Justin Bieber is a Canadian singer, songwriter, and actor. He gained fame in his early teenage years with songs like "Baby", "One Time", and "One Less Lonely  Girl". He has since released several successful albums and singles, including "Sorry", "Love Yourself", and "Intentions". Bieber has won numerous awards, including a Grammy Award, 20 Billboard Music Awards, and 20 MTV Europe Music Awards.</p>
+
+
+<br>
+
+<h2 style="color: pink;font-size: 60px;">Album Reviews</h2>
+<p style="color: white;font-size: 40px;">Leave a review for Justin Bieber's upcoming album:</p>
+<form>
+  <label for="name" style="color: white;font-size: 30px;">Name:</label>
+  <input style="color: white;font-size: 20px;"type="text" id="name" name="name"><br><br>
+  
+  <label for="rating" style="color: white;font-size: 30px;">Rating:</label><br>
+  <input type="radio" id="1" name="rating" value="1">
+  <label for="1" style="color: white;font-size: 30px;">1</label><br>
+  <input type="radio" id="2" name="rating" value="2">
+  <label for="2" style="color: white;font-size: 30px;">2</label><br>
+  <input type="radio" id="3" name="rating" value="3">
+  <label for="3" style="color: white;font-size: 30px;">3</label><br>
+  <input type="radio" id="4" name="rating" value="4">
+  <label for="4" style="color: white;font-size: 30px;">4</label><br>
+  <input type="radio" id="5" name="rating" value="5">
+  <label for="5" style="color: white;font-size: 30px;">5</label><br><br>
+  
+  <label for="review" style="color: white;font-size: 30px;">Review:</label><br>
+  <textarea style="color: black;font-size: 20px;"id="review" name="review" rows="4" cols="50"></textarea><br><br>
+  
+  <button type="button" onclick="submitReview()" style="color: black;font-size: 30px;">Submit </button>
+</form>
+
+<br>
+<p id="countdown" style="color: white; font-size: 40px;"></p>
+
+<script>
+  // Set the release date
+  const releaseDate = new Date("June 30, 2023 00:00:00").getTime();
+
+  // Update the countdown timer every second
+  const countdown = setInterval(function() {
+    // Get the current time
+    const now = new Date().getTime();
+
+    // Calculate the time remaining until release date
+    const timeRemaining = releaseDate - now;
+
+    // Calculate days, hours, minutes, and seconds remaining
+    const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+    // Display the countdown timer
+    const countdownElement = document.getElementById("countdown");
+    countdownElement.innerHTML = `Countdown to Release: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+    // Stop the countdown when the release date is reached
+    if (timeRemaining < 0) {
+      clearInterval(countdown);
+      countdownElement.innerHTML = "The album/song is now available!";
+    }
+  }, 1000);
+</script>
+
+<br>
+<h2 style="color: pink;font-size: 60px;">Reviews</h2>
+<table id="reviews" style="margin: 0 auto;color: white;">
+  <tr>
+    <th style="color: white;font-size: 30px;">Name</th>
+    <th style="color: white;font-size: 30px;">Rating</th>
+    <th style="color: white;font-size: 30px;">Review</th>
+  </tr>
+</table>
+<script src="../static/index.js"></script>
+<br><br><br>
+ <footer>
+  <p>© 2023 Team DD, Inc. All rights reserved. <span "><a href="about.html">About</a></span></p>
+</footer>
+</body>
+</html>
+

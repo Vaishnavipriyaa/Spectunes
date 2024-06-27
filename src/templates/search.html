@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Search Page</title>
+    <link rel="stylesheet" type="text/css" href="../static/index.css">
+  </head>
+  <body style="
+    background-image: url('https://wallpapercave.com/wp/FAcb1N5.jpg');
+  background-attachment: fixed;
+    background-size:cover;">
+    	<nav>
+      <a href="index.html">HOME</a>
+      <a href="artists.html">ARTISTS</a>
+      <a href="about.html">ABOUT</a>
+      <a href="search.html" class="active">SEARCH</a>
+      <a href="spotlight.html">ARTIST SPOTLIGHT</a>
+      <a href="playlist.html">PLAYLIST</a> 
+    </nav>
+	<h1 style="font-size:100px; text-align:center;color:black;">
+    <h1 style="font-size:100px; text-align:center;color:black;"></h1>
+    <h2 style"color:black"></h2>
+    <form style="text-align:center;color:black;">
+      <label style="font-size:50px;color:black;" for="search">Search:</label>
+      <input style="font-size:30px;color:black;" type="text" id="search" name="search">
+      <label style="font-size:50px;color:black;" for="duration">Duration (in minutes):</label>
+      <input style="font-size:30px;color:black;" type="number" id="duration" name="duration" min="0"><br><br>
+      <label style="font-size:50px;color:black;" for="explicit">Explicit:</label>
+      <select style="font-size:30px;color:black;" id="explicit" name="explicit">
+        <option value="any">Any</option>
+        <option value="explicit">Explicit</option>
+        <option value="cleaned">Cleaned</option>
+      </select>
+      <br><br>
+      <button style="font-size:30px;color:black;" type="submit">Search</button>
+      <button style="font-size:30px;color:black;" id="clear-filter" type="button">Clear Filter</button>
+
+    </form>
+    <div style="color:black" >
+    <div id="results"></div></div>
+    <script src="../static/index.js"></script>
+    <footer>
+    <p>© 2023 Team DD, Inc. All rights reserved. <span><a href="about.html">About</a></span></p>
+</footer>
+  </body>
+</html>
+
